@@ -64,6 +64,28 @@ int* runningSum(int* nums, int numsSize, int* returnSize) {
     return nums;
 }
 ```
+10.移动零
+题目难度：easy
+思路：
+双指针法，如果一个数左指针和右指针指向的值有一个为0，即进行交换，交换为了减小代码量使用函数实现，调用子函数swap实现即可。
+```
+void swap(int* a,int* b) {
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+void moveZeroes(int* nums, int numsSize) {
+    int left = 0;
+    int right = 0;
+    while (right < numsSize) {
+        if (nums[right]) {
+            swap(nums + left, nums + right);
+            left++;
+        }
+        right++;
+    }
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
