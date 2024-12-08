@@ -96,6 +96,22 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 5.右旋转字符串<br>
 6.实现strstr()<br>
 7.重复的子字符串<br>
+8.字符串中的单词数<br>
+题目难度：easy
+思路：
+找到单词计数加1的条件即可，前一个为空后一个为空是一个单词结束的标志，前一个非空后一个遇到结束符\0是句子结束的标志，单词数也要+1。
+```
+int countSegments(char* s) {
+    int length = strlen(s);
+    int count = 0;
+    for (int i = 0;i < length;i++) {
+        if ((s[i] != ' ' && s[i + 1] == ' ') || (s[i] != ' ' && s[i + 1] == '\0')) {
+            count++;
+        }
+    }
+    return count;
+}
+```
 ## 栈与队列
 1.用栈实现队列<br>
 2.用队列实现栈<br>
