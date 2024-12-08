@@ -29,6 +29,28 @@ int search(int* nums, int numsSize, int target) {
 5.螺旋矩阵Ⅱ<br>
 6.区间和<br>
 7.开发商购买土地<br>
+8.找出数组游戏的赢家
+题目难度：easy
+思路：
+找到数组游戏的赢家，也就是设计一个计数器变量count，一个暂时赢家，遍历然后找到符合条件的赢家输出即可。
+```
+//注意题目中是不同整数，条件判断中没有等号
+int getWinner(int* arr, int arrSize, int k) {
+    int Maximum = arr[0];
+    int count = 0;
+    for (int i = 0;i < arrSize;i++) {
+        if (count == k) break;
+        if (Maximum < arr[i]) {
+            Maximum = arr[i];
+            count = 1;
+        }
+        else if (Maximum > arr[i]) {
+            count++;
+        }
+    }
+    return Maximum;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
