@@ -1,6 +1,28 @@
 # leetcode刷题笔记
 ## 数组
 1.二分查找<br>
+题目难度：easy
+思路：
+类似武侯猜数，使用二分法，每次都选中间的，然后再调整直到寻到符合条件的数。
+```
+int search(int* nums, int numsSize, int target) {
+    int left = 0;
+    int right = numsSize - 1;
+    while (left<=right) {
+        int middle = left + (right - left) / 2;
+        if (nums[middle] > target) {
+            right = middle - 1;
+        }
+        else if (nums[middle] < target) {
+            left = middle + 1;
+        }
+        else {
+            return middle;
+        }
+    }
+    return -1;
+}
+```
 2.移除元素<br>
 3.有序数组的平方<br>
 4.长度最小的子数组<br>
