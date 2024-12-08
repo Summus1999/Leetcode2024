@@ -87,6 +87,24 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 5.跳跃游戏<br>
 ## 动态规划
 1.斐波那契数<br>
+难度：easy
+思路：直接用三个变量num1,num2,result，一个存F(n-2),一个存F(n-1),一个存F(n),输出最后一个变量即可。
+```
+int fib(int n) {
+    if(n<2){
+        return n;
+    }
+    int num1=0;
+    int num2=0;
+    int result=1;
+    for(int i=2;i<=n;++i){
+        num1=num2;
+        num2=result;
+        result=num1+num2;
+    }
+    return result;
+}
+```
 2.爬楼梯<br>
 3.使用最小花费爬楼梯<br>
 4.不同路径<br>
