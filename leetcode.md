@@ -51,6 +51,19 @@ int getWinner(int* arr, int arrSize, int k) {
     return Maximum;
 }
 ```
+9.一维数组的动态和
+题目难度：easy
+思路：
+确定长度，然后遍历，根据公式，遍历需要从下标1开始，最后输出结果即可。
+```
+int* runningSum(int* nums, int numsSize, int* returnSize) {
+    *returnSize = numsSize;
+    for (int i = 1;i < numsSize;i++) {
+        nums[i] = nums[i - 1] + nums[i];
+    }
+    return nums;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
