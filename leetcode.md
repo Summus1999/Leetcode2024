@@ -132,9 +132,10 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 6.实现strstr()<br>
 7.重复的子字符串<br>
 8.字符串中的单词数<br>
-题目难度：easy
-思路：
-找到单词计数加1的条件即可，前一个为空后一个为空是一个单词结束的标志，前一个非空后一个遇到结束符\0是句子结束的标志，单词数也要+1。
+题目难度：easy<br>
+思路：<br>
+找到单词计数加1的条件即可，前一个为空后一个为空是一个单词结束的标志，前一个非空后一个遇到结束符\0是句子结束的标志，单词数也要+1。<br>
+代码：
 ```
 int countSegments(char* s) {
     int length = strlen(s);
@@ -145,6 +146,26 @@ int countSegments(char* s) {
         }
     }
     return count;
+}
+```
+9.回文数
+题目难度：easy
+思路：
+将数字转化为字符串存入数组，然后双指针一个指向头部一个指向尾部，遍历数组对比。如果左指针下标小于右指针下标时即符合遍历条件，然后输出结果即可。
+代码：
+```
+bool isPalindrome(int x) {
+    int right = 0;
+    int left = 0;
+    char a[100];
+    sprintf(a, "%d", x);
+    right = strlen(a) - 1;
+    for (right, left;left < right;left++, right--) {
+        if (a[left] != a[right]) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
 ## 栈与队列
