@@ -191,6 +191,25 @@ int firstUniqChar(char* s) {
     return -1;
 }
 ```
+11.找到稳定山的下标
+题目难度：easy
+思路：
+先初始化然后遍历，找到符合条件的存入结果数组，输出数组即可。
+代码：
+```
+int* stableMountains(int* height, int heightSize, int threshold,
+                     int* returnSize) {
+    int* result = (int*)malloc((heightSize - 1) * sizeof(int));
+    *returnSize = 0;
+    for (int i = 1; i < heightSize; i++) {
+        if (height[i - 1] > threshold) {
+            result[*returnSize] = i;
+            (*returnSize)++;
+        }
+    }
+    return result;
+}
+```
 ## 栈与队列
 1.用栈实现队列<br>
 2.用队列实现栈<br>
