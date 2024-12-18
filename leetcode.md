@@ -125,6 +125,21 @@ int* twoSum(int* nums, int numsSize, int target, int* returnSize) {
 8.四数之和<br>
 ## 字符串
 1.反转字符串<br>
+题目难度：easy
+思路：
+找到符合要求的字符串，将首尾换成符合要求的即可。
+```
+void swap(char* a, char* b) {
+    char t = *a;
+    *a = *b;
+    *b = t;
+}
+void reverseString(char* s, int sSize) {
+    for (int left = 0, right = sSize - 1; left < right; left++, right--) {
+        swap(s + left, s + right);
+    }
+}
+```
 2.反转字符串Ⅱ<br>
 3.替换数字<br>
 4.翻转字符串里的单词<br>
