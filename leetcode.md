@@ -168,6 +168,29 @@ bool isPalindrome(int x) {
     return true;
 }
 ```
+10.字符串中的第一个唯一字符
+题目难度：easy
+思路：
+遍历将每个字符出现的次数进行计算，第二次遍历找到次数统计为1的，找到下标，输出即可。
+代码：
+```
+int firstUniqChar(char* s) {
+    int str[26]={0};
+    int length=strlen(s);
+    int result=0;
+    //遍历每个字母出现的次数
+    for(int i=0;i<length;i++){
+        str[s[i]-'a']++;
+    }
+    for(int i=0;i<length;i++){
+        if(str[s[i]-'a']==1){
+            result=i;
+            return result;
+        }
+    }
+    return -1;
+}
+```
 ## 栈与队列
 1.用栈实现队列<br>
 2.用队列实现栈<br>
