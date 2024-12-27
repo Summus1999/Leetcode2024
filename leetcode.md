@@ -86,6 +86,25 @@ void moveZeroes(int* nums, int numsSize) {
     }
 }
 ```
+11.分割数组
+题目难度：easy
+思路：
+使用哈希表，如果一个数组内有一个元素出现2次以上则不可分割，反之均可分割。
+```
+//3046分割数组
+bool isPossibleToSplit(int *nums, int numsSize)
+{
+    int count[101] = {0};
+    for (int i = 0; i < numsSize; i++)
+    {
+        if (++count[nums[i]] > 2)
+        {
+            return false;
+        }
+    }
+    return true;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
