@@ -166,6 +166,27 @@ bool canAliceWin(int *nums, int numsSize)
     }
 }
 ```
+14.买卖股票的最佳时机
+题目难度：easy
+思路：
+追求最大利润，买入价格必须是最低点，售出价格必须是最高点，用一个变量保存最低价格，一个变量保存最高价格，相减即可。
+```
+//121买卖股票的最佳时机
+#define MAX(a, b) ((a) > (b) ? (a) : (b))
+#define MIN(a, b) ((a) < (b) ? (a) : (b))
+int maxProfit(int *prices, int pricesSize)
+{
+    int result = 0;
+    int min_price = prices[0];
+    for (int i = 0; i < pricesSize; i++)
+    {
+        int temp = prices[i];
+        result = MAX(result, temp - min_price);
+        min_price = MIN(min_price, temp);
+    }
+    return result;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
