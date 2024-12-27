@@ -124,6 +124,48 @@ int numberOfEmployeesWhoMetTarget(int *hours, int hoursSize, int target)
     return result;
 }
 ```
+13.判断是否可以赢得数字游戏
+题目难度：easy
+思路：
+先找到总数，然后统计一位数的和和二位数的和，只有有一个超过一半则返回true
+```
+//3232判断是否可以赢得数字游戏
+bool canAliceWin(int *nums, int numsSize)
+{
+    int totalValue = 0;
+    int num1 = 0;
+    int num2 = 0;
+    // 统计总数和
+    for (int i = 0; i < numsSize; i++)
+    {
+        totalValue = totalValue + nums[i];
+    }
+    // 统计1位数的和
+    for (int i = 0; i < numsSize; i++)
+    {
+        if ((nums[i] >= 1) && (nums[i] < 10))
+        {
+            num1 = num1 + nums[i];
+        }
+    }
+    // 统计2位数的和
+    for (int i = 0; i < numsSize; i++)
+    {
+        if ((nums[i] >= 10) && (nums[i] < 100))
+        {
+            num2 = num2 + nums[i];
+        }
+    }
+    if ((num1 > totalValue / 2) || (num2 > totalValue / 2))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
