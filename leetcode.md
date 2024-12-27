@@ -105,6 +105,25 @@ bool isPossibleToSplit(int *nums, int numsSize)
     return true;
 }
 ```
+12.满足目标工作时长的员工数目
+题目难度：easy
+思路：
+遍历，满足条件则人数+1即可。
+```
+//2798满足目标工作时长的员工数目
+int numberOfEmployeesWhoMetTarget(int *hours, int hoursSize, int target)
+{
+    int result = 0;
+    for (int i = 0; i < hoursSize; i++)
+    {
+        if (hours[i] >= target)
+        {
+            result++;
+        }
+    }
+    return result;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
