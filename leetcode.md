@@ -244,6 +244,30 @@ int removeDuplicates(int *nums, int numsSize)
     return slow;
 }
 ```
+17.最小数字游戏<br>
+题目难度：easy<br>
+思路：<br>
+先排序，2个为一组，小的数字放后面一个，大数字放前面即可。<br>
+代码：
+```
+//2974最小数字游戏
+int cmp(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
+}
+int *numberGame(int *nums, int numsSize, int *returnSize)
+{
+    qsort(nums, numsSize, sizeof(int), cmp);
+    *returnSize = numsSize;
+    for (int i = 0; i < numsSize; i = i + 2)
+    {
+        int temp = nums[i];
+        nums[i] = nums[i + 1];
+        nums[i + 1] = temp;
+    }
+    return nums;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
