@@ -500,6 +500,31 @@ int climbStairs(int n)
 ## 图论
 1.所有可达路径<br>
 2.岛屿数量深搜版<br>
+## 数学
+1.三除数
+题目难度：easy<br>
+思路：<br>
+遍历 找能够被他本体相除的数，统计这个数是否为3即可。<br>\
+代码：
+```
+//1952三除数
+bool isThree(int n) {
+    int count=0;
+    if(n<=3){
+        return false;
+    }
+    for(int i=1;i<=n;i++){
+        if(n%i==0){
+            count++;
+        }
+    }   
+    if(count==3){
+        return true;
+    }else{
+        return false;
+    }
+}
+```
 ## 额外题目
 1.有多少小于当前数字的数字<br>
 2.有效的山脉数组<br>
