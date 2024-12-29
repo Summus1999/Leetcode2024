@@ -169,7 +169,8 @@ bool canAliceWin(int *nums, int numsSize)
 14.买卖股票的最佳时机
 题目难度：easy
 思路：
-追求最大利润，买入价格必须是最低点，售出价格必须是最高点，用一个变量保存最低价格，一个变量保存最高价格，相减即可。
+追求最大利润，买入价格必须是最低点，售出价格必须是最高点，用一个变量保存最低价格，一个变量保存最高价格，相减即可。<br>
+代码：
 ```
 //121买卖股票的最佳时机
 #define MAX(a, b) ((a) > (b) ? (a) : (b))
@@ -185,6 +186,62 @@ int maxProfit(int *prices, int pricesSize)
         min_price = MIN(min_price, temp);
     }
     return result;
+}
+```
+15.多数元素<br>
+题目难度：easy<br>
+思路：
+先排序然后分类讨论，取中间的数即可。<br>
+代码：
+```
+//169多数元素
+int cmp(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
+}
+int majorityElement(int *nums, int numsSize)
+{
+    // 排序，然后直接选中间的一个，分奇数偶数讨论
+    qsort(nums, numsSize, sizeof(int), cmp);
+    int result = 0;
+    if (numsSize % 2 == 0)
+    {
+        result = numsSize / 2;
+        return nums[result];
+    }
+    else
+    {
+        result = (numsSize - 1) / 2;
+        return nums[result];
+    }
+}
+
+```
+16.删除有效数组中的重复项
+题目难度：easy
+思路：<br>
+双指针，使用快慢指针，如果快指针找到重复项则把这个重复项去掉。<br>
+代码：
+```
+//26删除有序数组中的重复项
+int removeDuplicates(int *nums, int numsSize)
+{
+    if (numsSize <= 0)
+    {
+        return 0;
+    }
+    int slow = 1;
+    int fast = 1;
+    while (fast < numsSize)
+    {
+        if (nums[fast] != nums[fast - 1])
+        {
+            nums[slow] = nums[fast];
+            ++slow;
+        }
+        ++fast;
+    }
+    return slow;
 }
 ```
 ## 链表
@@ -324,6 +381,28 @@ int* stableMountains(int* height, int heightSize, int threshold,
         }
     }
     return result;
+}
+```
+12.判断国际象棋棋盘中一个格子的颜色
+题目难度：easy
+思路：
+观察棋盘可以发现横纵轴的和加起来是奇数则为黑色，返回false，不然返回true
+代码：
+```
+//1812判断国际象棋棋盘中一个格子的颜色
+bool squareIsWhite(char *coordinates)
+{
+    // 找到两个数字加起来为奇数为黑，反之为白
+    int result = 0;
+    result = coordinates[0] - 'a' + coordinates[1];
+    if (result % 2 == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 ```
 ## 栈与队列
