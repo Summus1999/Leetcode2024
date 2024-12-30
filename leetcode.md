@@ -268,6 +268,64 @@ int *numberGame(int *nums, int numsSize, int *returnSize)
     return nums;
 }
 ```
+18.合并两个有序数组
+题目难度：easy
+思路：
+先合并后排序即可。
+代码：
+```
+//88合并两个有序数组
+int cmp(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
+}
+void merge(int* nums1, int nums1Size, int m, int* nums2, int nums2Size, int n) {
+    for(int i=0;i!=n;++i){
+        nums1[m+i]=nums2[i];
+    }
+    qsort(nums1, nums1Size, sizeof(int), cmp);
+}
+```
+19.数组中两元素的最大乘积
+题目难度：easy
+思路：
+先排序然后直接找2个最大的数算出来即可。
+代码：
+```
+//1464数组中两元素的最大乘积
+int cmp(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
+}
+int maxProduct(int *nums, int numsSize)
+{
+    qsort(nums, numsSize, sizeof(int), cmp);
+    return (nums[numsSize - 2] - 1) * (nums[numsSize - 1] - 1);
+}
+```
+20.丢失的数字
+题目难度：easy
+思路：
+直接算预期的总和和实际的总和，差值就是丢失的数字。
+代码：
+```
+//268丢失的数字
+int cmp(const void *a, const void *b)
+{
+    return *(int *)a - *(int *)b;
+}
+int missingNumber(int *nums, int numsSize)
+{
+    qsort(nums, numsSize, sizeof(int), cmp);
+    int expectCount = numsSize * (numsSize + 1) / 2;
+    int actualCount = 0;
+    for (int i = 0; i < numsSize; i++)
+    {
+        actualCount = actualCount + nums[i];
+    }
+    return expectCount - actualCount;
+}
+```
 ## 链表
 1.移除链表元素<br>
 2.设计链<br>
